@@ -6,13 +6,25 @@
       <div class="col-12">
         <article class="featured-post">
           <div class="featured-post-content">
-            <div class="featured-post-author">
-              <img src="{{ $.Site.Params.authorThumb | absURL }}" alt="author" />
-              <!-- <p>By <a href={{ "about" | absURL }}>{{ $.Site.Params.author }}</a></p> -->
+            <div class="featured-summary">
+              <div class="featured-summary-title">
+                <div class="featured-post-author">
+                  <img src="{{ $.Site.Params.authorThumb | absURL }}" alt="author" />
+                </div>
+                <div>
+                  <a href="{{ .Permalink }}" class="featured-post-title">
+                    {{ .Title }}
+                  </a>
+                  <!-- <p>By <a href={{ "about" | absURL }}>{{ $.Site.Params.author }}</a></p> -->
+                </div>
+              </div>
+              <div class="featured-summary-subtitle">
+                Parenting quotient isn't about being a perfect parent; it's about being a present parent. 
+                Quality time, active listening, and genuine connection build the foundation of a strong parent-child relationship. 
+                Let's prioritize moments that matter and make lasting memories with our little ones.
+              </div>
             </div>
-            <a href="{{ .Permalink }}" class="featured-post-title">
-              {{ .Title }}
-            </a>
+            
             <!-- <ul class="featured-post-meta">
               <li>
                 <i class="fa fa-clock-o"></i>
@@ -21,7 +33,7 @@
             </ul> -->
           </div>
           <div class="featured-post-thumb">
-            <img src="{{ .Params.thumbnail  | absURL }}" alt="feature-post-thumb" />
+            <img src="{{ $.Site.Params.mainThumb  | absURL }}" alt="feature-post-thumb" />
           </div>
         </article>
       </div>
