@@ -1,8 +1,8 @@
 .footer {
   overflow: hidden;
-  padding-top: 100px;
+  padding-top: 20px;
   @include desktop {
-    padding-top: 50px;
+    padding-top: 10px;
   }
   @include mobile-xs {
     padding-top: 30px;

@@ -1,7 +1,7 @@
 .blog {
-  padding: 60px 0 100px;
+  padding: 60px 0 20px;
   @include tablet {
-    padding-bottom: 50px;
+    padding-bottom: 10px;
   }
   @include mobile {
     padding-top: 30px;
