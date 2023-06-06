@@ -113,9 +113,8 @@
     &-subtitle {
       font-size: 1.25rem;
       text-align: justify;
-      text-justify: inter-word;
-      color: $secondary-color;
-      
+      color: $primary-color;
+      line-height: 1.625rem;
     }
   }
 }
