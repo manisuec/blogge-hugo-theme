@@ -1,5 +1,5 @@
 .about {
-  padding: 100px 0;
+  padding: 10px 0;;
   @include desktop {
     padding: 50px;
   }
@@ -19,16 +19,24 @@
       max-width: 100%;
     }
     h3 {
-      font-size: 26px;
+      font-size: 2rem;
       font-weight: 500;
       margin-bottom: 30px;
+      color: $text-color-dark;
+      text-align: center;
+      padding-top: 0.75rem;
     }
     p {
-      margin-bottom: 50px;
+      margin-bottom: 1rem;
+      color: $primary-color;
       @include mobile {
         text-align: justify;
         padding: 0 20px;
       }
+    }
+    .regards {
+        color: $text-color-dark;
+        margin-bottom: 0.25rem;
     }
     .banner {
       margin-bottom: 80px;
@@ -62,7 +70,7 @@
         box-shadow: 10px 25px 40px 0px rgba(18, 21, 26, 0.15);
       }
     }
-    .soicel-icon {
+    .social-icon {
       padding: 0;
       margin: 0;
       li {
