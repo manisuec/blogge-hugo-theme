@@ -36,6 +36,15 @@
         padding: 0 20px;
       }
     }
+    .img-container {
+      display: flex;
+      justify-content: space-around;
+      img{
+        height: 200px;
+        width: 240px;
+        border-radius: 10px;
+      }
+    }
     .regards {
         color: $text-color-dark;
         margin-bottom: 0.25rem;
