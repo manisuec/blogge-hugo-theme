@@ -39,10 +39,17 @@
     .img-container {
       display: flex;
       justify-content: space-around;
-      img{
+      img {
         height: 200px;
         width: 240px;
         border-radius: 10px;
+      }
+      @include mobile {
+        img {
+          height: 80px;
+          width: 100px;
+          border-radius: 10px;
+        }
       }
     }
     .regards {
