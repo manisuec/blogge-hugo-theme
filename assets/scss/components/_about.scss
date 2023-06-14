@@ -17,6 +17,7 @@
     }
     img {
       max-width: 100%;
+      border-radius: 25px;
     }
     h3 {
       font-size: 2rem;
@@ -29,6 +30,7 @@
     p {
       margin-bottom: 1rem;
       color: $primary-color;
+      text-align: justify;
       @include mobile {
         text-align: justify;
         padding: 0 20px;
