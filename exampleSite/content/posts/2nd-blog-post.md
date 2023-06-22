@@ -2,7 +2,7 @@
   title: "2nd blog post"
   date: 2021-01-13T18:10:40+06:00
   tags: "news"
-  tranding: false
+  trending: false
   readTime: "4 min"
   thumbnail: /images/blog/blog-thum-2.png
   featureImage: /images/blog/feature-image-04.jpg

@@ -2,7 +2,7 @@
   title: "My new post"
   date: 2021-01-13T18:10:30+06:00
   tags: "0ffice"
-  tranding: true
+  trending: true
   readTime: "10 min"
   thumbnail: /images/blog/blog-thum-4.png
   featureImage: /images/blog/feature-image-07.jpg

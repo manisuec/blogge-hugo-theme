@@ -3,7 +3,7 @@
   date: 2021-01-13T17:33:14+06:00
   featured: true
   tags: "travel"
-  tranding: false
+  trending: false
   readTime: "2 min"
   thumbnail: /images/featured-post.jpg
   featureImage: /images/blog/blog-single.png

@@ -2,7 +2,7 @@
   title: "Today's new post"
   date: 2021-01-13T18:10:40+06:00
   tags: "travel"
-  tranding: "FALSE"
+  trending: "FALSE"
   readTime: "9 min"
   thumbnail: /images/blog/blog-thum-3.png
   featureImage: /images/blog/feature-image-09.jpg

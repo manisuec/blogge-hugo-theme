@@ -2,7 +2,7 @@
   title: "Officel post"
   date: 2021-01-13T18:10:30+06:00
   tags: "office"
-  tranding: false
+  trending: false
   readTime: "3 min"
   thumbnail: /images/blog/blog-thum-4.png
   featureImage: /images/blog/blog-single.png

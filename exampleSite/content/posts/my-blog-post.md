@@ -2,7 +2,7 @@
   title: "My blog post"
   date: 2021-01-13T18:10:50+06:00
   tags: "news"
-  tranding: true
+  trending: true
   readTime: "1 min"
   thumbnail: /images/blog/blog-thum-3.png
   featureImage: /images/blog/feature-image-06.jpg

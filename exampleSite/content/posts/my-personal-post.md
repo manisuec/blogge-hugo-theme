@@ -2,7 +2,7 @@
   title: "Personal post"
   date: 2021-01-13T19:10:40+06:00
   tags: "travel"
-  tranding: false
+  trending: false
   readTime: "10 min"
   thumbnail: /images/blog/blog-thum-1.png
   featureImage: /images/blog/feature-image-03.jpg
