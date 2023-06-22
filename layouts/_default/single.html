@@ -40,9 +40,11 @@
               {{ .PublishDate.Format "January 2, 2006" }} - {{ .Params.readTime }} read
             </li>
           </ul>
+          {{ if .Params.featureImage }}
           <div class="feature-image">
             <img src="{{ .Params.featureImage  | absURL }}" alt="banner">
           </div>
+          {{ end }}
           <div class="single-blog-content">
             {{ .Content }}
           </div>
