@@ -383,7 +383,8 @@
     }
     .single-blog {
       position: relative;
-      padding: 0 80px 60px;
+      margin-right: -.5rem;
+      color: $primary-color;
       @include tablet {
         padding: 0;
       }
@@ -393,7 +394,7 @@
         display: inline-block;
         border-radius: 50px;
         text-decoration: none;
-        font-size: 12px;
+        font-size: 0.75rem;
         color: $white;
         font-weight: 600;
         margin-bottom: 20px;
@@ -454,8 +455,12 @@
         max-width: 100%;
       }
       p {
-        font-size: 14px;
+        font-size: 1rem;
         font-weight: 500;
+        color: $primary-color;
+        text-align: justify;
+        margin-left: -1rem;
+        margin-right: -1rem;
       }
       h3 {
         font-size: 26px;
