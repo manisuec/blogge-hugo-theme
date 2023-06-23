@@ -386,7 +386,7 @@
       margin-right: -.5rem;
       color: $primary-color;
       @include tablet {
-        padding: 0;
+        padding: 0 1.25rem 0 1.25rem;
       }
       .tag {
         background-color: $black;
