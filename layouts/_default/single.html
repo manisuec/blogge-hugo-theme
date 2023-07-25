@@ -8,21 +8,16 @@
           <a href="#" class="scrol">Share</a>
           <div class="sociel-icon">
             <ul>
-              <!-- <li>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li> -->
               <li>
                 <a href="http://www.twitter.com/intent/tweet?url={{ .Permalink }}" target="_blank">
-                  <i class="fa fa-twitter"></i>
+                  <i class="fa-brands fa-square-twitter"></i>
                 </a>
               </li>
-              <!-- <li>
+              <li>
                 <a href="https://www.linkedin.com/cws/share?url={{ .Permalink }}" target="_blank">
-                  <i class="fa fa-linkedin"></i>
+                  <i class="fa-brands fa-linkedin"></i>
                 </a>
-              </li> -->
+              </li>
             </ul>
           </div>
         </div>
@@ -36,7 +31,7 @@
               By <a href={{ "about" | absURL }}>{{ $.Site.Params.author }}</a>
             </li>
             <li>
-              <i class="fa fa-clock-o"></i>
+              <i class="fa-regular fa-clock"></i>
               {{ .PublishDate.Format "January 2, 2006" }} - {{ .Params.readTime }} read
             </li>
           </ul>
@@ -57,7 +52,7 @@
               <a href="{{.RelPermalink}}" class="title">
                 {{ .Title }}
               </a>
-              <i class="fa fa-clock-o"></i>
+              <i class="fa-regular fa-clock"></i>
               {{ .PublishDate.Format "January 2, 2006" }} - {{ .Params.readTime }}
             </li>
             {{ end }}
@@ -66,7 +61,7 @@
               <a href="{{.RelPermalink}}" class="title">
                 {{ .Title }}
               </a>
-              <i class="fa fa-clock-o"></i>
+              <i class="fa-regular fa-clock"></i>
               {{ .PublishDate.Format "January 2, 2006" }} - {{ .Params.readTime }}
             </li>
             {{ end }}
