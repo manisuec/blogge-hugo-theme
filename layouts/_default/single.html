@@ -82,8 +82,9 @@
             <div class="latest-widget-title">
               <h2>Trending post</h2>
             </div>
+            <div class="row">
             {{ range $i, $.Site.RegularPages }} {{ if eq .Params.trending true }}
-            <div class="latest-widget">
+            <div class="latest-widget col-lg-6">
               <div class="latest-widget-thum">
                 <a href="{{ .Permalink }}" class="post-thumb"
                   style='background-image: url("{{ .Params.thumbnail | absURL }}")'>
@@ -110,6 +111,7 @@
               </div>
             </div>
             {{ end }} {{ end }}
+          </div>
           </div>
         </div>
       </div>
