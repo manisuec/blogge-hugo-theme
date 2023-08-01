@@ -107,12 +107,12 @@
     }
     &-action {
       color: $text-color-dark;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       text-transform: capitalize;
       text-decoration: none;
       i {
-        padding-left: 10px;
+        padding-left: 5px;
         display: inline-block;
         line-height: 20px;
         transition: 0.3s $site-ease;
