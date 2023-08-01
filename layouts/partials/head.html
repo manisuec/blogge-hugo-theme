@@ -18,22 +18,31 @@
   {{ if  .Site.Params.twitterUsername }}
   <meta name="twitter:card" content="{{ if .Params.thumbnail }}summary_large_image{{else}}summary{{end}}">
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}">
-  <meta name="twitter:description" content="{{ if .IsHome }}{{ .Description }}{{ else }}{{ htmlEscape .Summary }}{{ end }}">
+  <meta name="twitter:description" content="{{- if .Description -}}{{ .Description | safeHTML }}{{ .Summary | plainify }}{{- else if .Site.Params.description -}}{{ .Site.Params.description | safeHTML }}{{- end -}}">
   <meta name="twitter:site" content="{{ .Site.Params.twitter }}">
   <meta name="twitter:creator" content="{{ .Site.Params.twitter }}">
-    {{ if .Params.thumbnail }}<meta name="twitter:image" content="{{ .Params.thumbnail }}">{{ end }}
+  {{ if .Params.thumbnail }}
+    <meta name="twitter:image" content="{{ .Params.thumbnail }}">
+    <meta name="twitter:card" content="summary">
+  {{ else if .Site.Params.mainThumb }} 
+    <meta name="twitter:image" content="{{ .Site.Params.mainThumb }}">
+    <meta name="twitter:card" content="summary">
+  {{ end }}
   {{ end }}
 
   <meta property="og:locale" content="en_GB">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}">
-  <meta property="og:description" content="{{ if .IsHome }}{{ .Description }}{{ else }}{{ htmlEscape .Summary }}{{ end }}">
+  <meta property="og:description" content="{{- if .Description -}}{{ .Description | safeHTML }}{{ .Summary | plainify }}{{- else if .Site.Params.description -}}{{ .Site.Params.description | safeHTML }}{{- end -}}">
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:site_name" content="{{ .Site.Title }}">
   {{ if .Params.thumbnail }}
-    <meta property="og:image" content="{{ .Params.thumbnail }}">
-    <meta property="og:image:secure_url" content="{{ .Params.thumbnail }}">
-  {{- end }}
+    <meta name="og:image" content="{{ .Params.thumbnail }}">
+    <meta name="og:image:secure_url" content="{{ .Params.thumbnail }}">
+  {{ else if .Site.Params.mainThumb }} 
+    <meta name="og:image" content="{{ .Site.Params.mainThumb }}">
+    <meta name="og:image:secure_url" content="{{ .Params.thumbnail }}">
+  {{ end }}
   {{ range .Params.categories }}<meta property="article:section" content="{{ . }}">{{ end }}
   {{ if isset .Params "date" }}<meta property="article:published_time" content="{{ (time .Date).Format "2006-01-02T15:04:05Z" }}">{{ end }}
   
