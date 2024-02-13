@@ -73,6 +73,9 @@
         @include desktop-lg {
           font-size: 1.375rem;
         }
+        @include mobile {
+          text-align: left;
+        }
       }
     }
     &-tag {
