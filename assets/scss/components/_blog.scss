@@ -44,10 +44,11 @@
     }
     &-content {
       width: 55%;
-      margin-left: auto;
+      margin-left: 2rem;
       @include mobile {
         width: 100%;
         text-align: center;
+        margin-left: auto;
       }
       p {
         @include tablet {
