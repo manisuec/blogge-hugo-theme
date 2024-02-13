@@ -27,6 +27,7 @@
     margin-bottom: 30px;
     @include mobile {
       display: block;
+      text-align: left;
     }
     &-thumb {
       width: 35%;
@@ -109,10 +110,11 @@
     }
     &-action {
       color: $text-color-dark;
-      font-size: 1rem;
-      font-weight: 300;
+      font-size: 0.875rem;
+      font-weight: 400;
       text-transform: capitalize;
       text-decoration: none;
+      line-height: 1.5rem;
       i {
         padding-left: 5px;
         display: inline-block;
