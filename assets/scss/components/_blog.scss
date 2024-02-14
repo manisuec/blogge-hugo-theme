@@ -1,5 +1,5 @@
 .blog {
-  padding: 60px 0 20px;
+  padding: 2rem 0 1rem;
   @include tablet {
     padding-bottom: 10px;
   }
@@ -80,7 +80,7 @@
     }
     &-tag {
       a {
-        background-color: $black;
+        background-color: $green;
         padding: 4px 20px;
         display: inline-block;
         border-radius: 50px;
@@ -278,9 +278,9 @@
 
   // start-blog-details
   &-single {
-    padding: 100px 0 50px;
+    padding: 2rem 0 2rem;
     @include desktop {
-      padding-top: 50px;
+      padding-top: 2rem;
     }
     @include mobile {
       padding-top: 0px;
@@ -291,6 +291,7 @@
     .share-now {
       position: sticky;
       top: 4%;
+      padding-left: 2rem;
       @include desktop {
         position: inherit;
         display: flex;
@@ -428,11 +429,11 @@
       }
       .meta {
         margin: 0;
-        padding: 0 0 2rem 0;
+        padding: 0 0 1rem 0;
         display: flex;
         list-style: none;
         @include mobile {
-          padding-bottom: 30px;
+          padding-bottom: 2rem;
         }
         li {
           font-size: 14px;
@@ -548,7 +549,7 @@
 
         li {
           list-style: none;
-          padding: 40px 0px 40px 40px;
+          padding: 1.5rem 0px 1.5rem 1.5rem;
           @include tablet {
             text-align: center;
             padding: 40px 80px;
@@ -561,7 +562,7 @@
           &:nth-child(1) {
             text-align: right;
             border-right: 1px solid $border-color;
-            padding: 40px 40px 40px 0;
+            padding: 1.5rem 0px 1.5rem 1.5rem;
             @include tablet {
               text-align: center;
               border-right: 0;
