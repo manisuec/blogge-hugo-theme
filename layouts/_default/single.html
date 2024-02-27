@@ -10,22 +10,22 @@
             <ul>
               <li>
                 <a href="http://www.twitter.com/share?url={{ .Permalink }}&text={{ .Title }}&hashtags=parenting&via=ParentingQ" target="_blank">
-                  <i class="fa-brands fa-square-twitter"></i>
+                  <img src = "/images/twitterx.svg" alt=""/>
                 </a>
               </li>
               <li>
                 <a href="https://api.whatsapp.com/send?text={{ .Title }} {{ .Permalink }}" rel="nofollow" target="_blank">
-                  <i class="fa-brands fa-whatsapp-square"></i>
+                  <img src = "/images/whatsapp.svg" alt=""/>
                 </a>
               </li>
               <li>
                 <a href="https://pinterest.com/pin/create/button/?url={{ .Permalink }}" target="_blank">
-                  <i class="fa-brands fa-pinterest"></i>
+                  <img src = "/images/pinterest.svg" alt=""/>
                 </a>
               </li>
               <li>
                 <a href="https://linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title }}" rel="nofollow" target="_blank">
-                  <i class="fa-brands fa-linkedin"></i>
+                  <img src = "/images/linkedin.svg" alt=""/>
                 </a>
               </li>
             </ul>
@@ -42,7 +42,7 @@
             </li>
             <li>
               {{ .PublishDate.Format "January 2, 2006" }}
-              <i class="fa-regular fa-clock"></i>
+              <img src = "/images/clock.svg" alt=""/>
               {{ partial "reading-time.html" . }}
             </li>
           </ul>
@@ -53,22 +53,22 @@
                 <ul>
                   <li>
                     <a href="http://www.twitter.com/share?url={{ .Permalink }}&text={{ .Title }}&hashtags=parenting&via=ParentingQ" target="_blank">
-                      <i class="fa-brands fa-square-twitter"></i>
+                      <img src = "/images/twitterx.svg" alt=""/>
                     </a>
                   </li>
                   <li>
                     <a href="https://api.whatsapp.com/send?text={{ .Title }} {{ .Permalink }}" rel="nofollow" target="_blank">
-                      <i class="fa-brands fa-whatsapp-square"></i>
+                      <img src = "/images/whatsapp.svg" alt=""/>
                     </a>
                   </li>
                   <li>
                     <a href="https://pinterest.com/pin/create/button/?url={{ .Permalink }}" target="_blank">
-                      <i class="fa-brands fa-pinterest"></i>
+                      <img src = "/images/pinterest.svg" alt=""/>
                     </a>
                   </li>
                   <li>
                     <a href="https://linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title }}" rel="nofollow" target="_blank">
-                      <i class="fa-brands fa-linkedin"></i>
+                      <img src = "/images/linkedin.svg" alt=""/>
                     </a>
                   </li>
                 </ul>
@@ -92,9 +92,9 @@
               <a href="{{.RelPermalink}}" class="title">
                 {{ .Title }}
               </a>
-              <i class="fa-regular fa-clock"></i>
+              <img src = "/images/clock.svg" alt=""/>
               {{ .PublishDate.Format "January 2, 2006" }}
-              <i class="fa-regular fa-clock"></i>
+              <img src = "/images/clock.svg" alt=""/>
               {{ partial "reading-time.html" . }}
             </li>
             {{ end }}
@@ -104,7 +104,7 @@
                 {{ .Title }}
               </a>
               {{ .PublishDate.Format "January 2, 2006" }}
-              <i class="fa-regular fa-clock"></i>
+              <img src = "/images/clock.svg" alt=""/>
               {{ partial "reading-time.html" . }}
             </li>
             {{ end }}
@@ -137,7 +137,7 @@
                   <ul>
                     <li>
                       {{ .PublishDate.Format "January 2, 2006" }}
-                      <i class="fa-regular fa-clock"></i>
+                      <img src = "/images/clock.svg" alt=""/>
                       {{ partial "reading-time.html" . }}
                     </li>
                   </ul>
