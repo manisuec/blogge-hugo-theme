@@ -206,7 +206,7 @@
           .icon {
             a {
               position: absolute;
-              background: $black;
+              background: $green;
               border-radius: 50px;
               width: 30px;
               height: 30px;
@@ -369,20 +369,22 @@
               display: flex;
               align-items: center;
               justify-content: center;
-              border: 1px solid $border-color;
               border-radius: 50px;
               text-decoration: none;
               color: $text-color;
               margin-bottom: 10px;
               transition: all 0.3s ease-in-out;
+              & img {
+                height: 2.5rem;
+                width: 2.5rem;
+              }
               @include mobile-xs {
                 font-size: 16px;
                 width: 40px;
                 height: 40px;
               }
               &:hover {
-                background-color: $black;
-                color: $white;
+                transform: scale(1.25);
               }
             }
           }
@@ -437,9 +439,6 @@
         }
         li {
           font-size: 14px;
-          &:not(:last-child) {
-            margin-right: 10px;
-          }
           a {
             color: $black;
           }
@@ -525,12 +524,10 @@
       }
     }
     &-presentation {
-      display: flex;
       border-top: 1px solid $border-color;
       border-bottom: 1px solid $border-color;
-      justify-content: center;
       align-items: center;
-      margin-bottom: 10px;
+      margin-top: 1.5rem;
       @include tablet {
         border: 0;
         margin-bottom: 0;
@@ -549,6 +546,8 @@
         li {
           list-style: none;
           padding: 1.5rem 0px 1.5rem 1.5rem;
+          width: 50%;
+          font-size: 0.75rem;
           @include tablet {
             text-align: center;
             padding: 40px 80px;
@@ -559,7 +558,7 @@
           }
 
           &:nth-child(1) {
-            text-align: right;
+            text-align: left;
             border-right: 1px solid $border-color;
             padding: 1.5rem 1.5rem 1.5rem 0;
             @include tablet {
@@ -574,27 +573,29 @@
               padding: 20px;
             }
           }
+          &:nth-child(2) {
+            text-align: right;
+          }
           .tag {
-            padding: 10px 30px;
-            background-color: $text-color;
+            padding: 0;
             display: inline-block;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 12px;
-            color: $white;
+            font-size: .875rem;
+            color: $black;
             font-weight: 600;
-            margin-bottom: 20px;
             transition: all 0.3s ease-in-out;
             text-transform: uppercase;
           }
           .title {
-            font-size: 20px;
+            font-size: 1rem;
             font-weight: 700;
             color: $text-color-dark;
             text-decoration: none;
             text-align: left;
             margin-bottom: 10px;
             display: block;
+            transition: all 0.3s ease-in-out;
             @include desktop {
               font-size: 18px;
             }
@@ -604,7 +605,12 @@
           }
           &:hover {
             .tag {
-              background-color: $black;
+              color: $green;
+              transform: scale(1.1);
+            }
+            .title {
+              color: $green;
+              text-decoration: underline;
             }
           }
         }

@@ -41,7 +41,7 @@
               By <a href={{ "about" | absURL }}>{{ $.Site.Params.author }}</a>
             </li>
             <li>
-              {{ .PublishDate.Format "January 2, 2006" }}
+              {{ .PublishDate.Format "Jan 2, 2006" }}
               <img src = "/images/clock.svg" alt=""/>
               {{ partial "reading-time.html" . }}
             </li>
@@ -88,22 +88,25 @@
         <div class="blog-single-presentation">
           <ul>
             {{ with .Site.RegularPages.Prev . }}
-            <li> <a href="{{.RelPermalink}}" class="tag">PREVIOUS</a>
+            <li> 
+              <img src = "/images/leftarrow.svg" alt=""/>
+              <a href="{{.RelPermalink}}" class="tag">PREVIOUS</a>
               <a href="{{.RelPermalink}}" class="title">
                 {{ .Title }}
               </a>
-              <img src = "/images/clock.svg" alt=""/>
-              {{ .PublishDate.Format "January 2, 2006" }}
+              {{ .PublishDate.Format "Jan 2, 2006" }}
               <img src = "/images/clock.svg" alt=""/>
               {{ partial "reading-time.html" . }}
             </li>
             {{ end }}
             {{ with .Site.RegularPages.Next . }}
-            <li> <a href="{{.RelPermalink}}" class="tag">Next</a>
+            <li> 
+              <a href="{{.RelPermalink}}" class="tag">Next</a>
+              <img src = "/images/rightarrow.svg" alt=""/>
               <a href="{{.RelPermalink}}" class="title">
                 {{ .Title }}
               </a>
-              {{ .PublishDate.Format "January 2, 2006" }}
+              {{ .PublishDate.Format "Jan 2, 2006" }}
               <img src = "/images/clock.svg" alt=""/>
               {{ partial "reading-time.html" . }}
             </li>
@@ -136,7 +139,7 @@
                 <div class="content-meta">
                   <ul>
                     <li>
-                      {{ .PublishDate.Format "January 2, 2006" }}
+                      {{ .PublishDate.Format "Jan 2, 2006" }}
                       <img src = "/images/clock.svg" alt=""/>
                       {{ partial "reading-time.html" . }}
                     </li>
