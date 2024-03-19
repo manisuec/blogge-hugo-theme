@@ -1,0 +1,16 @@
+.tag-container {
+  font-size: 0.875rem;   
+
+  .vertical-sep {
+    border-right: solid 1px;
+    border-right-color: $green;
+    height: 12px;
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  a {
+    color: $green;
+    font-weight: 500;
+  }
+}
