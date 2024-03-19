@@ -8,4 +8,4 @@
     <priority>{{ .Sitemap.Priority }}</priority>{{ end }}
   </url>
   {{ end }}
-</urlset>x
+</urlset>
