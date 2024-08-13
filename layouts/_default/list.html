@@ -25,7 +25,7 @@
             <div class="blog-post-meta">
               <ul>
                 <li>
-                  By <a href={{ "about" | absURL }}>{{ $.Site.Params.author }}</a>
+                  By <a href={{ "/about" | absURL }} title="about">{{ $.Site.Params.author }}</a>
                 </li>
                 <li class="vertical-divider">
                   {{ .PublishDate.Format "Jan 2, 2006" }} 
