@@ -106,7 +106,9 @@
             margin-right: 10px;
           }
           a {
-            color: $black;
+            color: $text-color-dark;
+            font-style: italic;
+            text-decoration: underline;
           }
         }
       }
@@ -251,7 +253,7 @@
               li {
                 font-size: 14px;
                 a {
-                  color: $black;
+                  color: $text-color-dark;
                 }
               }
             }
@@ -439,8 +441,11 @@
         }
         li {
           font-size: 14px;
+          padding-right: 0.25rem;
           a {
-            color: $black;
+            color: $text-color-dark;
+            font-style: italic;
+            text-decoration: underline;
           }
         }
       }
