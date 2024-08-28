@@ -13,12 +13,12 @@
         {{ range $.Paginator.Pages }}
         <article class="blog-post">
           <div class="blog-post-thumb">
-            <img src="{{ .Params.thumbnail  | absURL }}" alt="blog-thum" />
-          </div>
-          <div class="blog-post-content">
             <div class="blog-post-tag">
               <a href={{ printf "tags/%s" .Params.tags | absURL }}> {{ .Params.tags }} </a>
             </div>
+            <img src="{{ .Params.thumbnail  | absURL }}" alt="blog-thum" />
+          </div>
+          <div class="blog-post-content">
             <div class="blog-post-title">
               <a href="{{ .Permalink }}"> {{ .Title }} </a>
             </div>

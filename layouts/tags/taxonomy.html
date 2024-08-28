@@ -2,39 +2,38 @@
 <section class="blog">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 mx-auto">
+      <div class="col-lg-10 mx-auto">
         <div class="blog-section-title">
           <h2>{{ .Title }}</h2>
           <p>View the latest blogs on {{ .Title }}</p>
         </div>
-        {{ range $.Paginator.Pages }}
-        <article class="blog-post">
-          <div class="blog-post-thumb">
+        <div class="list-container">
+          {{ range $.Paginator.Pages }}
+          <div class="item">
             <img src="{{ .Params.thumbnail  | absURL }}" alt="blog-thum" />
+              <div>
+                <div class="item-title">
+                  <a href="{{ .Permalink }}"> {{ .Title }} </a>
+                </div>
+                <div class="item-meta">
+                  <ul>
+                    <li>
+                      {{ .PublishDate.Format "Jan 2, 2006" }}
+                      <img class="vertical-divider" src = "/images/clock.svg" alt="reading time" />
+                      {{ partial "reading-time.html" . }}
+                    </li>
+                  </ul>
+                </div>
+                <p>
+                  <a href="{{ .Permalink }}" class="blog-post-action"> {{ .Summary }}
+                    <span class="read-more">Read More</span>
+                    <img src = "/images/triplearrow.svg" alt=""/>
+                  </a>
+                </p>
+              </div>
           </div>
-          <div class="blog-post-content">
-            <div class="blog-post-title">
-              <a href="{{ .Permalink }}"> {{ .Title }} </a>
-            </div>
-            <div class="blog-post-meta">
-              <ul>
-                <li>
-                  By <a href={{ "/about" | absURL }}>{{ $.Site.Params.author }}</a>
-                </li>
-                <li>
-                  <img src = "/images/clock.svg" alt=""/>
-                  {{ .PublishDate.Format "Jan 2, 2006" }} - {{ .Params.readTime }} read
-                </li>
-              </ul>
-            </div>
-            <p>
-              <a href="{{ .Permalink }}" class="blog-post-action"> {{ .Summary }}
-                <img src = "/images/triplearrow.svg" alt=""/>
-              </a>
-            </p>
-          </div>
-        </article>
-        {{ end }}
+          {{ end }}
+      </div>
         {{ partial "pagination" .}}
       </div>
     </div>
