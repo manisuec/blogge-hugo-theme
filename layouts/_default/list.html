@@ -29,7 +29,7 @@
                 </li>
                 <li class="vertical-divider">
                   {{ .PublishDate.Format "Jan 2, 2006" }} 
-                  <img src = "/images/clock.svg" alt="" />
+                  <img src = "/images/clock.svg" alt="reading time clock" />
                   {{ partial "reading-time.html" . }}
                 </li>
               </ul>
@@ -37,7 +37,7 @@
             <p>
               <a href="{{ .Permalink }}" class="blog-post-action"> {{ .Params.description }}
                 <span class="read-more">Read More</span>
-                <img src = "/images/triplearrow.svg" alt=""/>
+                <img src = "/images/triplearrow.svg" alt="read more arrow"/>
               </a>
             </p>
             
@@ -61,7 +61,7 @@
               </a>
               <div class="icon">
                 <a href="{{ .Permalink }}">
-                  <img src="{{ $.Site.Params.trendingBlogIcon | absURL }}" alt="icon" /></a>
+                  <img src="{{ $.Site.Params.trendingBlogIcon | absURL }}" alt="trending icon" /></a>
               </div>
             </div>
             <div class="latest-widget-content">
@@ -74,7 +74,7 @@
                 <ul>
                   <li>
                     {{ .PublishDate.Format "Jan 2, 2006" }}
-                    <img src = "/images/clock.svg" alt=""/>
+                    <img src = "/images/clock.svg" alt="reading time clock"/>
                     {{ partial "reading-time.html" . }}
                   </li>
                 </ul>

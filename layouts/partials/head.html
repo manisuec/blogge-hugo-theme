@@ -1,6 +1,10 @@
 <head>
   <meta charset="utf-8" />
+  {{- if lt (.Title | len) 30 -}}
+  <title>{{ .Title }} | Parenting Quotient</title>
+  {{- else }}
   <title>{{ .Title }}</title>
+  {{ end }}
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />

@@ -5,8 +5,9 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="about-me">
+          <h1>{{ .Site.Data.about.heading }}</h1>
           <img class="mb-3" src="{{ .Site.Params.about | absURL}}" alt="image">
-          <h3>{{ .Site.Data.about.title }}</h3>
+          <h3>{{ .Site.Data.about.subheading }}</h3>
           <p>{{ .Site.Data.about.p1 }}</p>
           <p>{{ .Site.Data.about.p2 }}</p>
           <div class="img-container">
