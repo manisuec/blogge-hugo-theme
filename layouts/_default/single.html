@@ -38,7 +38,7 @@
           <h1 class="title">{{ .Title }}</h1>
           <ul class="meta">
             <li>
-              By <a href={{ "/about" | absURL }}>{{ $.Site.Params.author }}</a>
+              By <a href={{ "/about/" | absURL }}>{{ $.Site.Params.author }}</a>
             </li>
             <li>
               {{ .PublishDate.Format "Jan 2, 2006" }}
