@@ -56,8 +56,8 @@
           {{ range $i, $.Site.RegularPages }} {{ if eq .Params.trending true }}
           <div class="latest-widget">
             <div class="latest-widget-thum">
-              <a href="{{ .Permalink }}" class="post-thumb"
-                style='background-image: url("{{ .Params.thumbnail | absURL }}")'>
+              <a href="{{ .Permalink }}" class="post-thumb">
+                <img src="{{ .Params.thumbnail | absURL }}" alt="{{.Title}}" />
               </a>
               <div class="icon">
                 <a href="{{ .Permalink }}">
