@@ -1,0 +1,47 @@
+{{ define "main" }}
+
+{{ partial "feature.html" . }}
+<div class="container">
+  <hr />
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="blog-post-widget">
+        <div class="latest-widget-title">
+          <h2>Trending post</h2>
+        </div>
+        <div class="row">
+        {{ range $i, $.Site.RegularPages }} {{ if eq .Params.trending true }}
+        <div class="latest-widget col-lg-6">
+          <div class="latest-widget-thum">
+            <a href="{{ .Permalink }}" class="post-thumb">
+              <img src="{{ .Params.thumbnail | absURL }}" alt="{{.Title}}" />
+            </a>
+            <div class="icon">
+              <a href="{{ .Permalink }}">
+                <img src="{{ $.Site.Params.trendingBlogIcon | absURL }}" alt="icon" /></a>
+            </div>
+          </div>
+          <div class="latest-widget-content">
+            <div class="content-title">
+              <a href="{{ .Permalink }}">
+                {{ .Title }}
+              </a>
+            </div>
+            <div class="content-meta">
+              <ul>
+                <li>
+                  {{ .PublishDate.Format "Jan 2, 2006" }}
+                  <img src = "/images/clock.svg" alt="reading time clock"/>
+                  {{ partial "reading-time.html" . }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {{ end }} {{ end }}
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{- end -}}
