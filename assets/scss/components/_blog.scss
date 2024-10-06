@@ -199,6 +199,12 @@
             display: block;
             border-radius: 5px;
             overflow: hidden;
+
+            img {
+              height: 80px;
+              width: 100%;
+              object-fit: cover;
+            }
           }
           // img {
           //   max-width: 100%;
