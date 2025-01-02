@@ -67,6 +67,10 @@
           &:hover {
             transform: scale(1.25);
           }
+          & img {
+            height: 2.125rem;
+            width: 2.125rem;
+          }
         }
         &:last-child {
           a {
