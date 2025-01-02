@@ -126,6 +126,10 @@
           // background-color: $green;
           // color: $white;
         }
+        & img {
+          height: 2.125rem;
+          width: 2.125rem;
+        }
       }
       &:last-child {
         a {

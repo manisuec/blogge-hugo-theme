@@ -230,9 +230,8 @@
                 top: -10px;
               }
               img {
-                @include desktop {
-                  width: 50%;
-                }
+                width: .75rem;
+                height: 1rem;
               }
             }
           }
@@ -262,6 +261,10 @@
                 font-size: 14px;
                 a {
                   color: $text-color-dark;
+                }
+                & img {
+                  height: 1rem;
+                  width: 1rem;
                 }
               }
             }
