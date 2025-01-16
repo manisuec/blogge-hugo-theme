@@ -61,10 +61,10 @@
 
   {{ $style := resources.Get "scss/style.scss" | resources.ToCSS | minify}}
   {{ if hugo.IsProduction }}
-      {{ $style = $style | resources.PostCSS (dict "config" "./postcss.config.js" "noMap" true) | minify | fingerprint | resources.PostProcess }} 
+      {{ $style = $style | resources.PostCSS (dict "config" "./postcss.config.js" "noMap" true) | fingerprint | resources.PostProcess }} 
   {{ end }}
   <link 
-    href="{{ $style.Permalink }}" 
+    href="{{ $style.RelPermalink }}" 
     rel="stylesheet" 
     {{ if hugo.IsProduction -}} 
       integrity="{{ $style.Data.Integrity }}"
