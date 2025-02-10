@@ -87,7 +87,14 @@
           </div>
           {{ if .Params.featureImage }}
           <div class="feature-image">
-            <img src="{{ .Params.featureImage  | absURL }}" alt="banner">
+            <img 
+              src="{{ .Params.featureImage | absURL }}" 
+              alt="banner"
+              width="800"
+              height="400"
+              loading="lazy"
+              decoding="async"
+            >
           </div>
           {{ end }}
           <div class="single-blog-content">
