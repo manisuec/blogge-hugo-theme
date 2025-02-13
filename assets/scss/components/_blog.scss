@@ -497,6 +497,13 @@
         font-weight: 300;
         color: $text-color-dark;
         text-align: justify;
+        
+        img {
+          width: 80%;
+          margin: auto;
+          display: block;
+          max-height: 30rem;
+        }
       }
       h3 {
         font-size: 26px;
