@@ -1,4 +1,8 @@
 User-agent: *
 Sitemap: {{ "sitemap.xml" | absURL }}
 
-Disallow: /tags/
+Disallow: /tags/earlymomentsmatter/index.xml
+Disallow: https://parentingquo.com/index.xml
+Disallow: https://parentingquo.com/tags/breastfeeding/index.xml
+Disallow: /tags/parenting/index.xml
+Disallow: /tags/nutrition/index.xml
