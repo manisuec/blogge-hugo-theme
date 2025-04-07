@@ -1,0 +1,37 @@
+{{ $post := dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "headline" .Title
+  "name" .Title
+  "description" (.Description | default .Summary)
+  "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+  "url" .Permalink
+  "mainEntityOfPage" .Permalink
+}}
+
+{{ with .Site.Params.author }}
+  {{ $author := dict 
+    "@type" "Person"
+    "name" . 
+  }}
+  {{ $post = merge $post (dict "author" $author) }}
+{{ end }}
+
+{{ with .Params.thumbnail }}
+  {{ $image := dict 
+    "@type" "ImageObject"
+    "url" (. | absURL)
+  }}
+  {{ $post = merge $post (dict "image" $image) }}
+{{ end }}
+
+{{ with .Params.categories }}
+  {{ $post = merge $post (dict "articleSection" .) }}
+{{ end }}
+
+{{ with .Params.tags }}
+  {{ $post = merge $post (dict "keywords" .) }}
+{{ end }}
+
+{{ return $post }} 

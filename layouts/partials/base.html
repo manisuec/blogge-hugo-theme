@@ -1,0 +1,33 @@
+{{ $schema := dict 
+  "@context" "https://schema.org"
+  "@type" "Blog"
+  "@id" .Site.BaseURL
+  "name" .Site.Title
+  "description" .Site.Params.description
+  "url" .Site.BaseURL
+}}
+
+{{ with .Site.Params.author }}
+  {{ $author := dict 
+    "@type" "Person"
+    "name" . 
+  }}
+  {{ $schema = merge $schema (dict "author" $author) }}
+{{ end }}
+
+{{ $publisher := dict 
+  "@type" "Organization"
+  "name" .Site.Title
+}}
+
+{{ with .Site.Params.logo }}
+  {{ $logo := dict 
+    "@type" "ImageObject"
+    "url" (. | absURL)
+  }}
+  {{ $publisher = merge $publisher (dict "logo" $logo) }}
+{{ end }}
+
+{{ $schema = merge $schema (dict "publisher" $publisher) }}
+
+{{ return $schema }} 

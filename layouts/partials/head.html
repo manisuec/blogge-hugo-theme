@@ -12,6 +12,20 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" media="print" onload="this.media='all'">
 
+  <!-- Schema.org Blog JSON-LD -->
+  {{ if .IsHome }}
+    <script type="application/ld+json">
+      {{ $schema := partial "base.html" . }}
+      {{ $blogPosts := partial "blog-posts.html" . }}
+      {{ $schema = merge $schema (dict "blogPost" $blogPosts) }}
+      {{ $schema | jsonify | safeJS }}
+    </script>
+  {{ else if .IsPage }}
+    <script type="application/ld+json">
+      {{ partial "single-post.html" . | jsonify | safeJS }}
+    </script>
+  {{ end }}
+
   {{ with .Site.Params.author }}
   <meta name="author" content="{{ . }}">
   {{ end }}
