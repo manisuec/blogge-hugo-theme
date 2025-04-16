@@ -6,11 +6,14 @@
   <title>{{ .Title }}</title>
   {{ end }}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  
+  <!-- Preload critical fonts and resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" as="style">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" media="print" onload="this.media='all'">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" media="print" onload="this.media='all'" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"></noscript>
 
   <!-- Schema.org Blog JSON-LD -->
   {{ if .IsHome }}
@@ -74,20 +77,26 @@
   <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
   {{- end -}}
 
+  <!-- Critical CSS first, then load the rest with preload/defer -->
   {{ $style := resources.Get "scss/style.scss" | resources.ToCSS | minify}}
   {{ if hugo.IsProduction }}
       {{ $style = $style | resources.PostCSS (dict "config" "./postcss.config.js" "noMap" true) | fingerprint | resources.PostProcess }} 
   {{ end }}
   <link 
     href="{{ $style.RelPermalink }}" 
-    rel="stylesheet" 
+    rel="preload"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
     {{ if hugo.IsProduction -}} 
       integrity="{{ $style.Data.Integrity }}"
     {{- end }}
   />
+  <noscript><link rel="stylesheet" href="{{ $style.RelPermalink }}"></noscript>
 
   <link rel="icon" href={{ "/images/favicon.ico" | absURL }} type="image/x-icon" />
   <link rel="shortcut icon" href={{ "/images/favicon.ico" | absURL }} type="image/x-icon" />
+  
+  <!-- Defer non-critical JavaScript -->
   <!-- Google tag (gtag.js) -->
   <script defer src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.gtagManager }}"></script>
   <script>
@@ -98,14 +107,17 @@
       gtag('config', "{{ .Site.Params.gtagManager }}");
     });
   </script>
-  <!-- MS Clarity -->
+  
+  <!-- MS Clarity with defer -->
   {{- if .Site.Params.msclarity.enable -}}
-    <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "{{ .Site.Params.msclarity.accountId }}");
+    <script type="text/javascript" defer>
+      window.addEventListener('load', function() {
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "{{ .Site.Params.msclarity.accountId }}");
+      });
     </script>
   {{- end -}}
 </head>

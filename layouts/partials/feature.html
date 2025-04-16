@@ -9,7 +9,7 @@
             <div class="featured-summary">
               <div class="featured-summary-title">
                 <div class="featured-post-author">
-                  <img src="{{ $.Site.Params.authorThumb | absURL }}" alt="parenting quotient" />
+                  <img src="{{ $.Site.Params.authorThumb | absURL }}" alt="parenting quotient" width="60" height="60" />
                 </div>
                 <div>
                   <a href="{{ .Permalink }}" class="featured-post-title">
@@ -29,7 +29,13 @@
             </div>
           </div>
           <div class="featured-post-thumb">
-            <img src="{{ $.Site.Params.mainThumb  | absURL }}" alt="parenting quotient" fetchpriority="high" />
+            <img 
+              src="{{ $.Site.Params.mainThumb  | absURL }}" 
+              alt="parenting quotient" 
+              fetchpriority="high" 
+              width="600" 
+              height="400"
+            />
           </div>
         </article>
       </div>

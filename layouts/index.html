@@ -14,11 +14,24 @@
         <div class="latest-widget col-lg-6">
           <div class="latest-widget-thum">
             <a href="{{ .Permalink }}" class="post-thumb">
-              <img loading="lazy" src="{{ .Params.thumbnail | absURL }}" alt="{{.Title}}" />
+              <img 
+                loading="lazy" 
+                src="{{ .Params.thumbnail | absURL }}" 
+                alt="{{.Title}}" 
+                width="400" 
+                height="250" 
+              />
             </a>
             <div class="icon">
               <a href="{{ .Permalink }}">
-                <img src="{{ $.Site.Params.trendingBlogIcon | absURL }}" alt="icon" /></a>
+                <img 
+                  src="{{ $.Site.Params.trendingBlogIcon | absURL }}" 
+                  alt="icon" 
+                  width="30" 
+                  height="30" 
+                  loading="lazy" 
+                />
+              </a>
             </div>
           </div>
           <div class="latest-widget-content">
@@ -31,7 +44,7 @@
               <ul>
                 <li>
                   {{ .PublishDate.Format "Jan 2, 2006" }}
-                  <img src = "/images/clock.svg" alt="reading time clock"/>
+                  <img src="/images/clock.svg" alt="reading time clock" width="16" height="16" loading="lazy"/>
                   {{ partial "reading-time.html" . }}
                 </li>
               </ul>

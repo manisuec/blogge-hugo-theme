@@ -1,8 +1,13 @@
 User-agent: *
+Allow: /
+
+# XML feeds - disallow to prevent duplicate content issues
+Disallow: /*.xml$
+Disallow: /tags/*/index.xml
+Disallow: /categories/*/index.xml
+
+# Sitemap
 Sitemap: {{ "sitemap.xml" | absURL }}
 
-Disallow: /tags/earlymomentsmatter/index.xml
-Disallow: https://parentingquo.com/index.xml
-Disallow: https://parentingquo.com/tags/breastfeeding/index.xml
-Disallow: /tags/parenting/index.xml
-Disallow: /tags/nutrition/index.xml
+# Crawl delay to prevent server overload
+Crawl-delay: 10
