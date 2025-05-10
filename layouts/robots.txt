@@ -2,9 +2,11 @@ User-agent: *
 Allow: /
 
 # XML feeds - disallow to prevent duplicate content issues
-Disallow: /*.xml$
 Disallow: /tags/*/index.xml
 Disallow: /categories/*/index.xml
+Disallow: https://parentingquo.com/tags/parenting/
+Disallow: https://parentingquo.com/glossary/index.xml
+Disallow: https://parentingquo.com/index.xml
 
 # Sitemap
 Sitemap: {{ "sitemap.xml" | absURL }}
