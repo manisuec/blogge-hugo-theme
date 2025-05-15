@@ -82,7 +82,7 @@
   {{ if hugo.IsProduction }}
       {{ $style = $style | resources.PostCSS (dict "config" "./postcss.config.js" "noMap" true) | fingerprint | resources.PostProcess }} 
   {{ end }}
-  <link 
+  <!-- <link 
     href="{{ $style.RelPermalink }}" 
     rel="preload"
     as="style"
@@ -91,7 +91,9 @@
       integrity="{{ $style.Data.Integrity }}"
     {{- end }}
   />
-  <noscript><link rel="stylesheet" href="{{ $style.RelPermalink }}"></noscript>
+  <noscript><link rel="stylesheet" href="{{ $style.RelPermalink }}"></noscript> -->
+
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
   <link rel="icon" href={{ "/images/favicon.ico" | absURL }} type="image/x-icon" />
   <link rel="shortcut icon" href={{ "/images/favicon.ico" | absURL }} type="image/x-icon" />
