@@ -44,10 +44,9 @@
         margin-bottom: 10px;
       }
       img {
-        width: 80px;
-        height: 80px;
+        width: 7.5rem;
+        height: 7.5rem;
         border-radius: 50px;
-        margin-bottom: 10px;
       }
       p {
         font-family: $primary-font;
@@ -74,6 +73,7 @@
       line-height: 3rem;
       margin-bottom: 1rem;
       padding-left: 0.5rem;
+      text-align: left;
       display: block;
       @include desktop-lg {
         font-size: 2.25rem;
