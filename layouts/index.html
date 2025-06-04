@@ -56,5 +56,71 @@
       </div>
     </div>
   </div>
+  <hr />
+  <!-- Social Media Profiles Section -->
+  <div class="social-media-section mt-1">
+    <h2 class="text-center mb-4">Our Social Media Presence</h2>
+    <div class="row">
+      <!-- Facebook -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://www.facebook.com/profile.php?id={{ .Site.Params.facebookUsername }}" target="_blank" rel="noopener noreferrer">
+          <div class="social-card">
+            <img src="/images/facebook.svg" alt="Facebook Logo" class="social-logo">
+            <h4 class="social-name">Facebook</h4>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Instagram -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="http://www.instagram.com/{{ .Site.Params.instaUsername }}" target="_blank" rel="noopener noreferrer">
+          <div class="social-card">
+            <img src="/images/instagram.svg" alt="Instagram Logo" class="social-logo">
+            <h4 class="social-name">Instagram</h4>
+          </div>
+        </a>
+      </div>
+      
+      <!-- X (Twitter) -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://twitter.com/{{ .Site.Params.twitterUsername }}" target="_blank" rel="noopener noreferrer">
+          <div class="social-card">
+            <img src="/images/twitterx.svg" alt="X (Twitter) Logo" class="social-logo">
+            <h4 class="social-name">X (Twitter)</h4>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Threads -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://threads.com/{{ .Site.Params.threadsUsername }}" target="_blank" rel="noopener noreferrer">
+          <div class="social-card">
+            <img src="/images/threads.svg" alt="Threads Logo" class="social-logo">
+            <h4 class="social-name">Threads</h4>
+          </div>
+        </a>
+      </div>
+      
+      <!-- YouTube -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://www.youtube.com/{{ .Site.Params.youtubeUsername }}" target="_blank" rel="noopener noreferrer">
+          <div class="social-card">
+            <img src="/images/youtube.svg" alt="YouTube Logo" class="social-logo">
+            <h4 class="social-name">YouTube</h4>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Pinterest -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <a href="https://in.pinterest.com/{{ .Site.Params.pinterestUsername }}/" target="_blank" rel="noopener noreferrer">
+          <div class="social-card">
+            <img src="/images/pinterest.svg" alt="Pinterest Logo" class="social-logo">
+            <h4 class="social-name">Pinterest</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 {{- end -}}
