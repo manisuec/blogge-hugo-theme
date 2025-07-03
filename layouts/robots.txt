@@ -7,6 +7,7 @@ Disallow: /categories/*/index.xml
 Disallow: https://parentingquo.com/tags/parenting/
 Disallow: https://parentingquo.com/glossary/index.xml
 Disallow: https://parentingquo.com/index.xml
+Disallow: https://parentingquo.com/tags/*/page/*
 
 # Sitemap
 Sitemap: {{ "sitemap.xml" | absURL }}
