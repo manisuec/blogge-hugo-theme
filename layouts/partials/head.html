@@ -78,9 +78,9 @@
   {{- end -}}
 
   <!-- Critical CSS first, then load the rest with preload/defer -->
-  {{ $style := resources.Get "scss/style.scss" | resources.ToCSS | minify}}
+  {{ $style := resources.Get "scss/style.scss" | css.Sass | minify}}
   {{ if hugo.IsProduction }}
-      {{ $style = $style | resources.PostCSS (dict "config" "./postcss.config.js" "noMap" true) | fingerprint | resources.PostProcess }} 
+      {{ $style = $style | minify | fingerprint | resources.PostProcess }} 
   {{ end }}
   <!-- <link 
     href="{{ $style.RelPermalink }}" 
