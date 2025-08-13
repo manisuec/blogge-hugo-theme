@@ -1,0 +1,18 @@
+<div class="youtube-grid-container">
+  <h3>YouTube Videos</h3> 
+  <div class="video-grid">        
+  {{ range $video := .Site.Data.videos.videos }}
+      <div class="video-card">
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/{{ $video.id }}" allowfullscreen></iframe>
+            {{ if $video.duration }}
+                <div class="video-duration">{{ $video.duration }}</div>
+            {{ end }}
+        </div>
+        {{ if $video.title }}
+            <div class="video-title">{{ $video.title }}</div>
+        {{ end }}
+      </div>
+  {{ end }}
+  </div>
+</div>
