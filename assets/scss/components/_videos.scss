@@ -26,6 +26,7 @@
 
 .video-card {
   flex: 0 0 calc(25% - 15px);
+  min-width: 350px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   padding: 1rem;
