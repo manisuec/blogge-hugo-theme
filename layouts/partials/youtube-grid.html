@@ -1,5 +1,7 @@
 <div class="youtube-grid-container">
-  <h3>{{ .Site.Data.videos.title }}</h3> 
+  <h3>{{ .Site.Data.videos.title }} | 
+    <a href="{{ .Site.Data.videos.subsribeURL }}" target="_blank">Subscribe</a>
+  </h3>
   <div class="video-grid">        
   {{ range $video := .Site.Data.videos.videos }}
       <div class="video-card">

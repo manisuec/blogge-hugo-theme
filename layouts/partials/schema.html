@@ -1,0 +1,198 @@
+{{/* Enhanced Schema Markup for SEO */}}
+
+{{ if .IsHome }}
+  {{/* Organization Schema for Homepage */}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL }}",
+    "logo": "{{ .Site.Params.logo }}",
+    "description": "{{ .Site.Params.description }}",
+    "sameAs": [
+      {{ if .Site.Params.facebookUsername }}"https://facebook.com/{{ .Site.Params.facebookUsername }}",{{ end }}
+      {{ if .Site.Params.twitterUsername }}"https://twitter.com/{{ .Site.Params.twitterUsername }}",{{ end }}
+      {{ if .Site.Params.instagramUsername }}"https://instagram.com/{{ .Site.Params.instagramUsername }}",{{ end }}
+      {{ if .Site.Params.youtubeUsername }}"https://youtube.com/{{ .Site.Params.youtubeUsername }}"{{ end }}
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": "English"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ .Site.Title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.Params.logo }}"
+      }
+    }
+  }
+  </script>
+
+  {{/* WebSite Schema */}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL }}",
+    "description": "{{ .Site.Params.description }}",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ .Site.BaseURL }}search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+{{ else if .IsPage }}
+  {{/* Article Schema for Blog Posts */}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ .Title }}",
+    "description": "{{ .Description | default .Summary | plainify }}",
+    "image": "{{ .Params.thumbnail | default .Site.Params.mainThumb }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ .Site.Params.author }}",
+      "url": "{{ .Site.BaseURL }}about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ .Site.Title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.Params.logo }}"
+      }
+    },
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ .Permalink }}"
+    },
+    "articleSection": "{{ .Params.tags | default "Parenting" }}",
+    "keywords": "{{ delimit .Params.tags ", " }}",
+    "wordCount": "{{ .WordCount }}",
+    "timeRequired": "PT{{ math.Round (div .ReadingTime 60.0) }}M",
+    "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2", "h3", "p"]
+    }
+  }
+  </script>
+
+  {{/* BreadcrumbList Schema */}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ .Site.BaseURL }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "{{ .Site.BaseURL }}posts/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ .Title }}",
+        "item": "{{ .Permalink }}"
+      }
+    ]
+  }
+  </script>
+
+{{ else if .IsSection }}
+  {{/* CollectionPage Schema for Section Pages */}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{ .Title }}",
+    "description": "{{ .Description | default .Summary | plainify }}",
+    "url": "{{ .Permalink }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ .Site.Title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.Params.logo }}"
+      }
+    }
+  }
+  </script>
+{{ end }}
+
+{{/* FAQ Schema for FAQ pages */}}
+{{ if eq .Type "faq" }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {{ range .Params.faqs }}
+      {
+        "@type": "Question",
+        "name": "{{ .question }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ .answer | plainify }}"
+        }
+      }{{ if not (eq . $.Params.faqs | last) }},{{ end }}
+      {{ end }}
+    ]
+  }
+  </script>
+{{ end }}
+
+{{/* HowTo Schema for tutorial posts */}}
+{{ if eq .Params.type "tutorial" }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "{{ .Title }}",
+    "description": "{{ .Description | default .Summary | plainify }}",
+    "image": "{{ .Params.thumbnail | default .Site.Params.mainThumb }}",
+    "totalTime": "PT{{ .Params.duration | default "10" }}M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "0"
+    },
+    "supply": [
+      {{ range .Params.supplies }}
+      {
+        "@type": "HowToSupply",
+        "name": "{{ . }}"
+      }{{ if not (eq . ($.Params.supplies | last)) }},{{ end }}
+      {{ end }}
+    ],
+    "step": [
+      {{ range .Params.steps }}
+      {
+        "@type": "HowToStep",
+        "name": "{{ .title }}",
+        "text": "{{ .description | plainify }}",
+        "image": "{{ .image | default $.Params.thumbnail }}"
+      }{{ if not (eq . ($.Params.steps | last)) }},{{ end }}
+      {{ end }}
+    ]
+  }
+  </script>
+{{ end }}

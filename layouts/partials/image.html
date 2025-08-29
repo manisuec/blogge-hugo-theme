@@ -1,0 +1,85 @@
+{{/* 
+  Optimized Image Partial
+  Usage: {{ partial "image.html" (dict "src" "path/to/image.jpg" "alt" "Description" "class" "custom-class" "width" 800 "height" 600) }}
+*/}}
+
+{{ $src := .src }}
+{{ $alt := .alt | default "Image" }}
+{{ $class := .class | default "" }}
+{{ $width := .width | default 800 }}
+{{ $height := .height | default 600 }}
+{{ $lazy := .lazy | default true }}
+{{ $responsive := .responsive | default true }}
+
+{{/* Generate different image sizes for responsive loading */}}
+{{ $image := resources.Get $src }}
+{{ if $image }}
+  {{ $webp := $image.Resize (printf "%dx%d webp" $width $height) }}
+  {{ $jpg := $image.Resize (printf "%dx%d jpg" $width $height) }}
+  
+  {{/* Generate smaller sizes for mobile */}}
+  {{ $webpSmall := $image.Resize "400x300 webp" }}
+  {{ $jpgSmall := $image.Resize "400x300 jpg" }}
+  
+  {{/* Generate medium sizes for tablet */}}
+  {{ $webpMedium := $image.Resize "600x450 webp" }}
+  {{ $jpgMedium := $image.Resize "600x450 jpg" }}
+
+  <picture class="{{ $class }}">
+    {{ if $responsive }}
+      <!-- Mobile -->
+      <source 
+        media="(max-width: 480px)" 
+        srcset="{{ $webpSmall.RelPermalink }}" 
+        type="image/webp"
+        {{ if $lazy }}loading="lazy"{{ end }}
+      >
+      <source 
+        media="(max-width: 480px)" 
+        srcset="{{ $jpgSmall.RelPermalink }}" 
+        type="image/jpeg"
+        {{ if $lazy }}loading="lazy"{{ end }}
+      >
+      
+      <!-- Tablet -->
+      <source 
+        media="(max-width: 768px)" 
+        srcset="{{ $webpMedium.RelPermalink }}" 
+        type="image/webp"
+        {{ if $lazy }}loading="lazy"{{ end }}
+      >
+      <source 
+        media="(max-width: 768px)" 
+        srcset="{{ $jpgMedium.RelPermalink }}" 
+        type="image/jpeg"
+        {{ if $lazy }}loading="lazy"{{ end }}
+      >
+    {{ end }}
+    
+    <!-- Desktop/Default -->
+    <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+    <img 
+      src="{{ $jpg.RelPermalink }}" 
+      alt="{{ $alt }}"
+      width="{{ $width }}" 
+      height="{{ $height }}"
+      {{ if $lazy }}loading="lazy"{{ end }}
+      decoding="async"
+      class="lazy-load"
+      onload="this.classList.add('loaded')"
+      {{ if hugo.IsProduction }}fetchpriority="high"{{ end }}
+    >
+  </picture>
+{{ else }}
+  {{/* Fallback for external images or missing resources */}}
+  <img 
+    src="{{ $src }}" 
+    alt="{{ $alt }}"
+    width="{{ $width }}" 
+    height="{{ $height }}"
+    {{ if $lazy }}loading="lazy"{{ end }}
+    decoding="async"
+    class="{{ $class }} lazy-load"
+    onload="this.classList.add('loaded')"
+  >
+{{ end }}

@@ -1,0 +1,86 @@
+{{/* 
+  Reusable Card Component
+  Usage: {{ partial "components/card.html" (dict "post" . "class" "custom-class") }}
+*/}}
+
+{{ $post := .post }}
+{{ $class := .class | default "" }}
+{{ $showMeta := .showMeta | default true }}
+{{ $showImage := .showImage | default true }}
+
+<article class="card blog-card {{ $class }}" itemscope itemtype="https://schema.org/BlogPosting">
+  {{ if and $showImage $post.Params.thumbnail }}
+    <div class="card-image">
+      <a href="{{ $post.Permalink }}" class="card-link" aria-label="Read {{ $post.Title }}">
+        {{ partial "image.html" (dict 
+          "src" $post.Params.thumbnail 
+          "alt" $post.Title 
+          "class" "card-thumbnail"
+          "width" 400 
+          "height" 250
+          "lazy" true
+        ) }}
+      </a>
+      {{ if $post.Params.trending }}
+        <div class="card-badge trending">
+          <img src="{{ $.Site.Params.trendingBlogIcon | absURL }}" alt="Trending" width="30" height="30" loading="lazy">
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+  
+  <div class="card-content">
+    <header class="card-header">
+      {{ if $post.Params.tags }}
+        <div class="card-tags">
+          {{ range first 1 $post.Params.tags }}
+            <a href="{{ printf "tags/%s/" . | absURL }}" class="tag-link" aria-label="View posts tagged {{ . }}">
+              {{ . }}
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+      
+      <h2 class="card-title">
+        <a href="{{ $post.Permalink }}" itemprop="headline">
+          {{ $post.Title }}
+        </a>
+      </h2>
+    </header>
+    
+    {{ if $showMeta }}
+      <div class="card-meta" itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <ul class="meta-list">
+          <li class="meta-author">
+            <span class="sr-only">Author:</span>
+            <a href="{{ "/about/" | absURL }}" itemprop="name">
+              {{ $.Site.Params.author }}
+            </a>
+          </li>
+          <li class="meta-date">
+            <time datetime="{{ $post.Date.Format "2006-01-02T15:04:05Z07:00" }}" itemprop="datePublished">
+              {{ $post.PublishDate.Format "Jan 2, 2006" }}
+            </time>
+          </li>
+          <li class="meta-reading-time">
+            <img src="/images/clock.svg" alt="" width="16" height="16" loading="lazy" aria-hidden="true">
+            <span>{{ partial "reading-time.html" $post }}</span>
+          </li>
+        </ul>
+      </div>
+    {{ end }}
+    
+    {{ if $post.Summary }}
+      <div class="card-excerpt" itemprop="description">
+        <p>{{ $post.Summary | plainify | truncate 150 }}</p>
+      </div>
+    {{ end }}
+    
+    <footer class="card-footer">
+      <a href="{{ $post.Permalink }}" class="card-read-more" aria-label="Read full article: {{ $post.Title }}">
+        Read More
+        <span class="sr-only">: {{ $post.Title }}</span>
+      </a>
+    </footer>
+  </div>
+</article>

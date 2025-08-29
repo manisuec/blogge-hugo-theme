@@ -55,3 +55,11 @@ th {
     object-fit: cover;
   }
 }
+
+.primary-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: $primary-color;
+  font-family: $primary-font;
+  letter-spacing: 0.5px;
+}

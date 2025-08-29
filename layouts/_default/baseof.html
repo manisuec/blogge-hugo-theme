@@ -1,20 +1,84 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language }}">
-{{ partial "head.html" . }}
+<html lang="{{ .Site.Language | default "en" }}" class="no-js">
+<head>
+  {{ partial "head.html" . }}
+</head>
 
-<body>
-    {{ partial "header.html" . }}
-    <div id="content">
-        {{ block "main" . }}{{ end }}
-    </div>
-    <!-- <hr />
-<div class="container tag-container">
-  <div class="px-3">All Tags:
-    {{ partial "tags.html" . }}
-  </div>
-</div> -->
-<hr />
+<body class="{{ .Kind }} {{ .Type }} {{ .Layout }}">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link sr-only sr-only-focusable">
+    Skip to main content
+  </a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    {{ partial "components/navigation.html" . }}
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content" class="site-main" role="main" tabindex="-1">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
     {{ partial "footer.html" . }}
-</body>
+  </footer>
 
+  <!-- Back to top button -->
+  <button 
+    id="back-to-top" 
+    class="back-to-top" 
+    aria-label="Back to top"
+    style="display: none;"
+  >
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+      <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+    </svg>
+  </button>
+
+  <!-- Service Worker Registration -->
+  {{ if hugo.IsProduction }}
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('SW registered: ', registration);
+          })
+          .catch(function(registrationError) {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+  {{ end }}
+
+  <!-- Back to top functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTop = document.getElementById('back-to-top');
+      
+      if (backToTop) {
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            backToTop.style.display = 'block';
+          } else {
+            backToTop.style.display = 'none';
+          }
+        });
+        
+        backToTop.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    });
+  </script>
+
+  <!-- Additional page-specific scripts -->
+  {{ block "scripts" . }}{{ end }}
+</body>
 </html>
