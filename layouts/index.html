@@ -20,6 +20,7 @@
                 alt="{{.Title}}" 
                 width="400" 
                 height="250" 
+                decoding="async"
               />
             </a>
             <div class="icon">
@@ -30,6 +31,7 @@
                   width="30" 
                   height="30" 
                   loading="lazy" 
+                  decoding="async"
                 />
               </a>
             </div>
@@ -44,7 +46,14 @@
               <ul>
                 <li>
                   {{ .PublishDate.Format "Jan 2, 2006" }}
-                  <img src="/images/clock.svg" alt="reading time clock" width="16" height="16" loading="lazy"/>
+                  <img 
+                    src="/images/clock.svg" 
+                    alt="reading time clock" 
+                    width="16" 
+                    height="16" 
+                    loading="lazy" 
+                    decoding="async"
+                  />
                   {{ partial "reading-time.html" . }}
                 </li>
               </ul>
