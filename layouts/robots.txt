@@ -4,10 +4,10 @@ Allow: /
 # XML feeds - disallow to prevent duplicate content issues
 Disallow: /tags/*/index.xml
 Disallow: /categories/*/index.xml
-Disallow: https://parentingquo.com/tags/parenting/
-Disallow: https://parentingquo.com/glossary/index.xml
-Disallow: https://parentingquo.com/index.xml
-Disallow: https://parentingquo.com/tags/*/page/*
+Disallow: /tags/parenting/
+Disallow: glossary/index.xml
+Disallow: /index.xml
+Disallow: /tags/*/page/*
 
 # Sitemap
 Sitemap: {{ "sitemap.xml" | absURL }}

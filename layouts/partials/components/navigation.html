@@ -3,7 +3,7 @@
   Usage: {{ partial "components/navigation.html" . }}
 */}}
 
-<nav class="navbar navbar-expand-lg" role="navigation" aria-label="Main navigation">
+<nav class="navbar navbar-expand-sm" role="navigation" aria-label="Main navigation">
   <div class="container">
     <!-- Logo/Brand -->
     <!-- <a class="navbar-brand" href="{{ .Site.BaseURL }}" aria-label="{{ .Site.Title }} - Home">
@@ -14,8 +14,8 @@
     <button 
       class="navbar-toggler" 
       type="button" 
-      data-bs-toggle="collapse" 
-      data-bs-target="#navbarMain" 
+      data-toggle="collapse" 
+      data-target="#navbarMain" 
       aria-controls="navbarMain" 
       aria-expanded="false" 
       aria-label="Toggle navigation"
@@ -25,7 +25,7 @@
 
     <!-- Navigation menu -->
     <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav ms-auto" role="menubar">
+      <ul class="navbar-nav ml-auto" role="menubar">
         {{ range .Site.Menus.main }}
           {{ if .HasChildren }}
             <li class="nav-item dropdown" role="none">
@@ -33,6 +33,7 @@
                 class="nav-link dropdown-toggle" 
                 href="{{ .URL }}" 
                 role="menuitem" 
+                data-toggle="dropdown"
                 aria-haspopup="true" 
                 aria-expanded="false"
                 {{ if eq $.RelPermalink .URL }}aria-current="page"{{ end }}
@@ -83,7 +84,7 @@
       </ul>
       
       <!-- Search form -->
-      <!-- <form class="d-flex ms-lg-3" role="search" action="{{ .Site.BaseURL }}search/" method="get">
+      <!-- <form class="d-flex ml-lg-3" role="search" action="{{ .Site.BaseURL }}search/" method="get">
         <div class="input-group">
           <input 
             class="form-control" 
