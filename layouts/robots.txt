@@ -5,7 +5,7 @@ Allow: /
 Disallow: /tags/*/index.xml
 Disallow: /categories/*/index.xml
 Disallow: /tags/parenting/
-Disallow: glossary/index.xml
+Disallow: /glossary/index.xml
 Disallow: /index.xml
 Disallow: /tags/*/page/*
 
