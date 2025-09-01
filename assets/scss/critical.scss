@@ -12,6 +12,7 @@ body {
   line-height: 1.6;
   color: #333;
   font-display: swap; /* Prevent layout shifts during font loading */
+  size-adjust: 100%;
 }
 
 /* Header styles */
@@ -21,6 +22,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: 5rem;
 }
 
 .navbar {
@@ -69,6 +71,7 @@ header {
 /* Blog post cards */
 .blog-post-widget {
   margin: 2rem 0;
+  min-height: 300px;
 }
 
 .latest-widget-title h2 {
@@ -80,6 +83,7 @@ header {
 
 .latest-widget {
   margin-bottom: 2rem;
+  min-height: 350px;
 }
 
 .latest-widget-thum {
@@ -180,8 +184,8 @@ button:focus {
 
 /* LCP image optimization */
 .featured-post-thumb img {
-  width: 100%;
-  height: 100%;
+  width: 37.5rem;
+  height: 25rem;
   object-fit: cover;
   object-position: center;
   transition: transform 0.3s ease;
