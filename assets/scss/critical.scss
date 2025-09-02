@@ -23,6 +23,7 @@ header {
   top: 0;
   z-index: 1000;
   height: 5rem;
+  margin-bottom: 1rem;
 }
 
 .navbar {
@@ -82,8 +83,7 @@ header {
 }
 
 .latest-widget {
-  margin-bottom: 2rem;
-  min-height: 350px;
+  min-height: 100px;
 }
 
 .latest-widget-thum {
