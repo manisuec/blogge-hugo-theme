@@ -3,7 +3,7 @@
   Usage: {{ partial "components/navigation.html" . }}
 */}}
 
-<nav class="navbar navbar-expand-sm" role="navigation" aria-label="Main navigation">
+<nav class="navbar navbar-expand-lg" role="navigation" aria-label="Main navigation">
   <div class="container">
     <!-- Logo/Brand -->
     <!-- <a class="navbar-brand" href="{{ .Site.BaseURL }}" aria-label="{{ .Site.Title }} - Home">
@@ -24,11 +24,11 @@
     </button>
 
     <!-- Navigation menu -->
-    <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav ml-auto" role="menubar">
+    <div class="navbar-menu collapse navbar-collapse" id="navbarMain">
+      <div class="navbar-nav" role="menubar">
         {{ range .Site.Menus.main }}
           {{ if .HasChildren }}
-            <li class="nav-item dropdown" role="none">
+            <div class="nav-item dropdown" role="none">
               <a 
                 class="nav-link dropdown-toggle" 
                 href="{{ .URL }}" 
@@ -40,9 +40,9 @@
               >
                 {{ .Name }}
               </a>
-              <ul class="dropdown-menu" role="menu">
+              <div class="dropdown-menu" role="menu">
                 {{ range .Children }}
-                  <li role="none">
+                  <div role="none">
                     <a 
                       class="dropdown-item" 
                       href="{{ .URL }}" 
@@ -51,12 +51,12 @@
                     >
                       {{ .Name }}
                     </a>
-                  </li>
+                  </div>
                 {{ end }}
-              </ul>
-            </li>
+                </div>
+              </div>
           {{ else }}
-            <li class="nav-item" role="none">
+            <div class="nav-item" role="none">
               <a 
                 class="nav-link" 
                 href="{{ .URL }}" 
@@ -66,22 +66,22 @@
                 <span class="primary-text">{{ .Name }}</span>
                 
               </a>
-            </li>
+            </div>
           {{ end }}
         {{ end }}
-      </ul>
-      <ul class="navbar-nav ms-auto vertical-divider">
-        <li class="nav-item">
+      </div>
+      <div class="navbar-nav vertical-divider">
+        <div class="nav-item">
           <a class="nav-link" href="https://twitter.com/{{ .Site.Params.twitterUsername }}" target="_blank">
             <img src = "/images/twitterx.svg" alt="twitterx"/>
           </a>
-        </li>
-        <li class="nav-item">
+        </div>
+        <div class="nav-item">
           <a class="nav-link" href="http://www.instagram.com/{{ .Site.Params.instaUsername }}" target="_blank">
             <img src = "/images/instagram.svg" alt="instagram"/>
           </a>
-        </li>
-      </ul>
+        </div>
+      </div>
       
       <!-- Search form -->
       <!-- <form class="d-flex ml-lg-3" role="search" action="{{ .Site.BaseURL }}search/" method="get">

@@ -28,6 +28,31 @@ header {
 
 .navbar {
   padding: 1rem 0;
+  display: flex;
+  justify-items: center;
+  height: 100%; /* Use full header height */
+  align-items: center; /* Vertically center content */
+}
+
+.navbar-menu {
+  display: flex;
+  justify-items: center;
+  flex-grow: 1;
+  height: 100%;
+  align-items: center;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  height: 100%;
+  align-items: center;
+  display: flex;
+}
+
+.nav-link img {
+  width: 2rem;
+  height: 2rem;
+  display: block;
 }
 
 /* Hero/Feature section */
@@ -36,6 +61,20 @@ header {
   color: white;
   padding: 4rem 0;
   text-align: center;
+}
+
+/* Featured post with reserved space */
+.featured-post {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  min-height: 400px; /* Reserve space to prevent shift */
+  margin-bottom: 2rem;
+}
+
+.featured-post-content {
+  flex: 1;
+  min-height: 300px; /* Reserve vertical space */
 }
 
 .feature-title {
@@ -63,10 +102,16 @@ header {
   margin: 0 -0.5rem;
 }
 
-.col-lg-12 {
+.col-lg-12, .col-12 {
   flex: 0 0 100%;
   max-width: 100%;
   padding: 0 0.5rem;
+}
+
+.col-lg-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 .5rem;
 }
 
 /* Blog post cards */
@@ -82,27 +127,36 @@ header {
   color: #333;
 }
 
+/* Latest widget items with reserved space */
 .latest-widget {
-  min-height: 100px;
+  min-height: 100px; /* Reserve space for each widget */
+  margin-bottom: 2rem;
 }
 
 .latest-widget-thum {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; 
+  // height: 250px; /* Fixed height */
+  width: 100%;
 }
 
 .latest-widget-thum img {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform .3s ease;
+  display: block;
 }
 
 .latest-widget-thum:hover img {
   transform: scale(1.05);
 }
+
+// .latest-widget-content {
+//   min-height: 80px; /* Reserve space for content */
+// }
 
 .content-title a {
   color: #333;
@@ -110,6 +164,8 @@ header {
   font-weight: 600;
   font-size: 1.1rem;
   line-height: 1.4;
+  display: block;
+  min-height: 2.8rem; /* Reserve space for 2 lines of title */
 }
 
 .content-title a:hover {
@@ -120,6 +176,7 @@ header {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   color: #666;
+  height: 2rem; /* Fixed height to prevent shift */
 }
 
 .content-meta ul {
@@ -129,12 +186,14 @@ header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  height: 100%;
 }
 
 .content-meta img {
   width: 16px;
   height: 16px;
   margin-left: 0.25rem;
+  flex-shrink: 0;
 }
 
 /* Responsive design */
@@ -152,17 +211,57 @@ header {
   }
 }
 
-/* Loading states */
+.featured-post-thumb {
+  flex: 0 0 600px; /* Fixed width */
+  height: 400px; /* Fixed height */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* LCP image optimization */
+.featured-post-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .3s ease;
+  display: block; /* Prevent inline spacing issues */
+}
+
+.featured-post-thumb:hover img {
+  transform: scale(1.05);
+}
+
+.social-icon ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.social-icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Ensure all images have proper aspect ratios */
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
 .lazy-load {
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity .3s ease;
 }
 
 .lazy-load.loaded {
   opacity: 1;
 }
 
-/* Accessibility */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -170,27 +269,21 @@ header {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(0,0,0,0);
   white-space: nowrap;
   border: 0;
 }
 
-/* Focus styles for accessibility */
-a:focus,
-button:focus {
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+a:focus, button:focus {
   outline: 2px solid #667eea;
   outline-offset: 2px;
-}
-
-/* LCP image optimization */
-.featured-post-thumb img {
-  width: 37.5rem;
-  height: 25rem;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.3s ease;
-}
-
-.featured-post-thumb:hover img {
-  transform: scale(1.05);
 }
