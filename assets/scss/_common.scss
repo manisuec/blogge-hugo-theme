@@ -48,6 +48,13 @@ ul {
   width: 2rem;
 }
 
+table, th, td {
+  border: 1px solid;
+  padding: 0.5rem;
+  border-style: dotted;
+  margin-bottom: 0.5rem;
+}
+
 th {
   img {
     width: 28rem;
